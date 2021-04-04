@@ -1,7 +1,7 @@
 // ONLY INCLUDE H4Plugins.h in the main .ino file! (You'll get linker errors.)
 #include<H4Plugins.h>
 #include "network.hh"
-#include "time.hh"
+// #include "time.hh"
 #include "status.hh"
 #include "pir.hh"
 #include "secrets.h"
@@ -36,7 +36,8 @@ H4P_MultiFunctionButton mfnb(BUTTON_PIN, INPUT, ACTIVE_LOW, 15); // pin, mode, s
 H4P_Heartbeat h4hb; // add up-time to web ui
 // see https://github.com/philbowles/h4plugins/blob/master/dead/h4tk.md
 // note: the DST adjustment seems to not be correct/working
-H4P_Timekeeper h4tk("time.google.com","time1.google.com", -8*60, &H4P_Timekeeper::DST_USA); // -28800 = -8hrs for PST
+// disable getting NTP time if you devices might not be able to reach the NTP server- it'll block your app until it times out.
+// H4P_Timekeeper h4tk("time.google.com","time1.google.com", -8*60, &H4P_Timekeeper::DST_USA); // -28800 = -8hrs for PST
 //H4P_RemoteUpdate h4ru(); // remote update... TODO. See: dead/h4ru.md
 
 // For debugging
